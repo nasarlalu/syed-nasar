@@ -11,10 +11,12 @@
     "hero_banner": {
       "type": "hero-banner",
       "settings": {
-        "hero_banner_title": "",
-        "hero_banner_desc": "",
-        "hero_banner_anchor_text": "",
-        "divider_text": "",
+        "hero_banner_title": "The Gift Guide",
+        "hero_banner_desc": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season",
+        "hero_banner_anchor_text": "Shop Now",
+        "divider_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+        "header_text": "Find the ideal gift for your loved ones.",
+        "header_link": "choose gift"
       }
     },
     "hero_jVaWmY": {

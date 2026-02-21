@@ -1,0 +1,176 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: #000000;
+}
+
+span,
+a,
+button {
+    color: inherit;
+}
+
+.header__section {
+    background-color: #F5F5F5;
+    position: sticky;
+    top: 64px;
+    z-index: 99999;
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40px;
+}
+
+.header__icon {
+    background-color: unset;
+    border: unset;
+}
+
+.header__icon svg {
+    width: fit-content;
+    height: auto;
+}
+
+.header__text {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+
+
+.heroBanner__grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto;
+}
+
+.heroBanner__item--first {
+    grid-column: 1 / -1;
+}
+
+.heroBanner__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heroBanner__content {
+    margin: 40px;
+}
+
+.heroBanner__title {
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin-bottom: 34px;
+}
+
+.heroBanner__desc {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+}
+
+.animated__link {
+    font-size: 16px;
+    padding: 12px 20px 12px 56px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: fit-content;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.animated__link::after {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    box-shadow: -1px 2px 4px 1px #e3e2e2;
+    transition: width ease 0.4s;
+}
+
+.animated__link:hover::after {
+    width: 100%;
+}
+
+.heroBanner__link {
+    background-color: #000000;
+    margin-top: 30px;
+}
+
+.heroBanner__link::after {
+    background-color: #FFF544;
+}
+
+.heroBanner__link:hover span {
+    color: #000000;
+}
+
+.heroBanner__link:hover svg path {
+    fill: #000000;
+}
+
+.heroBanner__link span {
+    color: #fff;
+}
+
+
+
+
+.header__link::after {
+    background-color: #000000;
+}
+
+.header__link {
+    background-color: #FFF544;
+    padding: 8px 20px 8px 56px;
+}
+
+.header__link span {
+    color: #000000;
+}
+
+.header__link:hover span {
+    color: #ffffff;
+}
+
+.header__link:hover svg path {
+    fill: #ffffff;
+}
+
+.header__link svg path {
+    fill: #000000;
+}
+
+
+.divider__section {
+    background-color: #F5F5F5;
+}
+
+.divider__text {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6px 0;
+}
