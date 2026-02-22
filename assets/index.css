@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+
 h1,
 h2,
 h3,
@@ -14,39 +16,7 @@ button {
     color: inherit;
 }
 
-.header__section {
-    background-color: #F5F5F5;
-    position: sticky;
-    top: 64px;
-    z-index: 99999;
-}
-
-.header__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 40px;
-}
-
-.header__icon {
-    background-color: unset;
-    border: unset;
-}
-
-.header__icon svg {
-    width: fit-content;
-    height: auto;
-}
-
-.header__text {
-    font-weight: 400;
-    font-size: 16px;
-    letter-spacing: 0px;
-    text-align: center;
-}
-
-
-
+/* --------------- Hero Banner Starts --------------- */
 .heroBanner__grid {
     display: grid;
     grid-template-columns: 40% 60%;
@@ -133,8 +103,40 @@ button {
     color: #fff;
 }
 
+/* --------------- Hero Banner Ends --------------- */
 
 
+/* --------------- Header Section Starts --------------- */
+.header__section {
+    background-color: #F5F5F5;
+    position: sticky;
+    top: 64px;
+    z-index: 99999;
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40px;
+}
+
+.header__icon {
+    background-color: unset;
+    border: unset;
+}
+
+.header__icon svg {
+    width: fit-content;
+    height: auto;
+}
+
+.header__text {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+}
 
 .header__link::after {
     background-color: #000000;
@@ -161,7 +163,11 @@ button {
     fill: #000000;
 }
 
+/* --------------- Header Section Ends --------------- */
 
+
+
+/* --------------- Divider Section Starts --------------- */
 .divider__section {
     background-color: #F5F5F5;
 }
@@ -173,4 +179,176 @@ button {
     text-align: center;
     vertical-align: middle;
     padding: 6px 0;
+}
+
+/* --------------- Divider Section Ends --------------- */
+
+
+/* --------------- ProductGrid Section Starts --------------- */
+.productGrid__section {
+    margin: 100px 0;
+}
+
+.productGrid__heading {
+    font-family: "Lustria", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+}
+
+.container {
+    width: 100%;
+    max-width: calc(100% - 80px);
+    margin: 0 auto;
+}
+
+.productGrid__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.productGrid__btn {
+    background-color: unset;
+    border: unset;
+    padding: 0px;
+    cursor: url('add_icon.png') 8 8, auto;
+}
+
+.productGrid__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* --------------- ProductGrid Section Ends --------------- */
+
+.quickAdd__popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+}
+
+.quickAdd__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #ffffff57;
+
+}
+
+.quickAdd__popup.show {
+    display: block;
+}
+
+.quickAdd__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    position: relative;
+    width: fit-content;
+    max-width: 314px;
+    margin: 100px auto;
+    height: auto;
+    padding: 16px;
+}
+
+.quickAdd__header {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 8px;
+}
+
+.quickAdd__closeBtn {
+    border: unset;
+    cursor: pointer;
+    width: 24px;
+    height: auto;
+    border-radius: 90%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    background-color: unset;
+}
+
+.quickAdd__closeBtn:hover {
+    background-color: #e3e2e2;
+    border-radius: 90%;
+}
+
+.quickAdd__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.quickAdd__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quickAdd__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quickAdd__title {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    margin-bottom: 12px;
+    padding-top: 16px;
+}
+
+.quickAdd__price {
+    font-family: "Lustria", serif;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin: 0px;
+}
+
+.quickAdd__desp p {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: normal;
+    margin-top: 0px;
+}
+
+.quickAdd__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    padding: 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    border: unset;
+    background-color: #000;
+    color: #fff;
+}
+
+.quickAdd__variantWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.quickAdd__variantWrapper select {
+    font-size: 16px;
+    border-radius: 0px;
+    padding: 6px 12px;
 }
