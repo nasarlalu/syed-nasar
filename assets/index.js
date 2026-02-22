@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let activeProduct = null;
     let selectedOptions = {};
     let selectedVariantId = null;
+    let isblackAndMedium = false
 
     productGridItem?.forEach((product) => {
         const popupTriggerBtn = product?.querySelector(".productGrid__btn");
@@ -28,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             renderPopupHtml(activeProduct);
             renderVariants(activeProduct);
-
             quickAddPopup?.classList.add("show");
         });
     });
@@ -182,6 +182,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function handleIsBlackAndMedium() {
+        let currproduct = activeProduct?.variants.find((item) => item.id === selectedVariantId);
+        if (!currproduct) return false;
+        return currproduct.option1 === 'M' && currproduct.option2 === 'Black';
+    }
+
     async function handleAddToCart() {
         try {
             await fetch("/cart/add.js", {
@@ -192,6 +198,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     quantity: 1,
                 }),
             });
+
+            const isblackAndMedium = handleIsBlackAndMedium()
+
+            if (isblackAndMedium) {
+                await fetch("/cart/add.js", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        id: 51551820218500,
+                        quantity: 1,
+                    }),
+                });
+            }
+
             const sections = await fetch('/?sections=sections--27251834388612__header_section').then(res => res.json());
             document.dispatchEvent(
                 new CustomEvent('cart:update', {
