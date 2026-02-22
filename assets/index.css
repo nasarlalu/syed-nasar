@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: #000000;
+}
+
+span,
+a,
+button {
+    color: inherit;
+}
+
+/* --------------- Hero Banner Starts --------------- */
+.heroBanner__grid {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto;
+}
+
+.heroBanner__item--first {
+    grid-column: 1 / -1;
+}
+
+.heroBanner__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heroBanner__content {
+    margin: 40px;
+}
+
+.heroBanner__title {
+    font-size: 70px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin-bottom: 34px;
+}
+
+.heroBanner__desc {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+}
+
+.animated__link {
+    font-size: 16px;
+    padding: 12px 20px 12px 56px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: fit-content;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.animated__link::after {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    box-shadow: -1px 2px 4px 1px #e3e2e2;
+    transition: width ease 0.4s;
+}
+
+.animated__link:hover::after {
+    width: 100%;
+}
+
+.heroBanner__link {
+    background-color: #000000;
+    margin-top: 30px;
+}
+
+.heroBanner__link::after {
+    background-color: #FFF544;
+}
+
+.heroBanner__link:hover span {
+    color: #000000;
+}
+
+.heroBanner__link:hover svg path {
+    fill: #000000;
+}
+
+.heroBanner__link span {
+    color: #fff;
+}
+
+/* --------------- Hero Banner Ends --------------- */
+
+
+/* --------------- Header Section Starts --------------- */
+.header__section {
+    background-color: #F5F5F5;
+    position: sticky;
+    top: 64px;
+    z-index: 99999;
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40px;
+    padding: 8px 0;
+}
+
+.header__menu {
+    display: none;
+}
+
+.header__content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.header__icon {
+    background-color: unset;
+    border: unset;
+    width: 33%;
+}
+
+.header__icon svg {
+    width: fit-content;
+    height: auto;
+}
+
+.header__text {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0px;
+}
+
+
+.header__link {
+    background-color: #FFF544;
+    padding: 8px 20px 8px 56px;
+    margin-left: auto;
+}
+
+.header__link span {
+    color: #000000;
+}
+
+.header__link:hover span {
+    color: #ffffff;
+}
+
+.header__link:hover svg path {
+    fill: #ffffff;
+}
+
+.header__link::after {
+    background-color: #000000;
+}
+
+.header__link svg path {
+    fill: #000000;
+}
+
+/* --------------- Header Section Ends --------------- */
+
+
+
+/* --------------- Divider Section Starts --------------- */
+.divider__section {
+    background-color: #F5F5F5;
+}
+
+.divider__text {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6px 0;
+}
+
+/* --------------- Divider Section Ends --------------- */
+
+
+/* --------------- ProductGrid Section Starts --------------- */
+.productGrid__section {
+    margin: 100px 0;
+}
+
+.productGrid__heading {
+    font-family: "Lustria", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+}
+
+.container {
+    width: 100%;
+    max-width: calc(100% - 80px);
+    margin: 0 auto;
+}
+
+.productGrid__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.productGrid__btn {
+    background-color: unset;
+    border: unset;
+    padding: 0px;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: url('add_icon.png') center/contain no-repeat;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+    /* very high */
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.productGrid__btn:hover {
+    cursor: none;
+}
+
+.productGrid__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* --------------- ProductGrid Section Ends --------------- */
+
+.quickAdd__popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+}
+
+.quickAdd__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #ffffff57;
+
+}
+
+.quickAdd__popup.show {
+    display: block;
+}
+
+.quickAdd__container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    position: relative;
+    width: fit-content;
+    max-width: 314px;
+    margin: 100px auto;
+    height: auto;
+    padding: 16px;
+}
+
+.quickAdd__header {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 8px;
+}
+
+.quickAdd__closeBtn {
+    border: unset;
+    cursor: pointer;
+    width: 24px;
+    height: auto;
+    border-radius: 90%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    background-color: unset;
+}
+
+.quickAdd__closeBtn:hover {
+    background-color: #e3e2e2;
+    border-radius: 90%;
+}
+
+.quickAdd__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.quickAdd__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quickAdd__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quickAdd__title {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    margin-bottom: 12px;
+    padding-top: 16px;
+}
+
+.quickAdd__price {
+    font-family: "Lustria", serif;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin: 0px;
+}
+
+.quickAdd__desp p {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: normal;
+    margin-top: 0px;
+}
+
+.quickAdd__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    padding: 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    border: unset;
+    background-color: #000;
+    color: #fff;
+}
+
+.quickAdd__variantWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.quickAdd__variantWrapper select {
+    font-size: 16px;
+    border-radius: 0px;
+    padding: 6px 12px;
+}
+
+
+.quickAdd__colorTabs {
+    position: relative;
+    display: inline-flex;
+    background: #fff;
+    margin-top: 16px;
+    width: 100%;
+    border: 1px solid #000;
+}
+
+.quickAdd__colorTab {
+    position: relative;
+    z-index: 2;
+    border: none;
+    background: transparent;
+    padding: 8px 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.quickAdd__colorTab.active .quickAdd__colorName {
+    color: #ffffff;
+}
+
+.quickAdd__colorName {
+    color: #000000;
+}
+
+.quickAdd__colorDot {
+    width: 4px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+.quickAdd__colorIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #000;
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 1;
+}
+
+@media screen and (max-width:660px) {
+    .heroBanner__item--first {
+        display: none;
+    }
+
+    .heroBanner__grid {
+        grid-template-columns: 1fr;
+        position: relative;
+    }
+
+    .heroBanner__content {
+        text-align: center;
+    }
+
+    .heroBanner__link {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 20px 12px 24px;
+    }
+
+    .heroBanner__title {
+        font-size: 30px;
+    }
+
+    .heroBanner__desc {
+        font-size: 16px;
+    }
+
+    .productGrid__section {
+        margin: 40px 0;
+    }
+
+    .productGrid__heading {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .productGrid__wrapper {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .productGrid__btn {
+        display: block;
+    }
+
+    .custom-cursor {
+        display: none !important;
+    }
+
+    .header__wrapper {
+        justify-content: center;
+        padding: 24px 0;
+    }
+
+    .header__content.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header__section {
+        top: 58px;
+    }
+
+    .header__content {
+        position: absolute;
+        bottom: -7.5rem;
+        opacity: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #f5f5f5;
+        padding-top: 1.5rem;
+        box-shadow: -6px -6px 9px 0px #e7e7e7;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .header__link {
+        margin-right: auto;
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    .header__menu {
+        display: block;
+        position: absolute;
+        left: 16px;
+        background-color: unset;
+        border: unset;
+        width: 20px;
+        height: 12px;
+        padding: 2px;
+        cursor: pointer;
+    }
+
+    .header__menuLine {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: #000;
+        margin-bottom: 0px;
+        position: absolute;
+        left: 0;
+    }
+
+    .header__menu {
+
+        .header__menuLine:nth-child(1) {
+            top: 0;
+        }
+
+        .header__menuLine:nth-child(2) {
+            top: calc(100% - 8px);
+            transform: translateY(50%);
+        }
+
+        .header__menuLine:nth-child(3) {
+            bottom: 0;
+        }
+    }
+
+    .header__menu.active {
+
+        .header__menuLine:nth-child(1) {
+            transform: translateY(-50%) rotate(45deg);
+            top: unset;
+        }
+
+        .header__menuLine:nth-child(2) {
+            opacity: 0;
+        }
+
+        .header__menuLine:nth-child(3) {
+            transform: translateY(-50%) rotate(-45deg);
+            bottom: unset;
+        }
+    }
+
+    .heroBanner__link span {
+        text-wrap: nowrap;
+    }
+
+    .heroBanner__link {
+        gap: 16px;
+    }
+
+    .quickAdd__container {
+        margin: 10vh auto;
+    }
+
+    .quickAdd__overlay {
+        background-color: #818181a8;
+    }
+
+}
