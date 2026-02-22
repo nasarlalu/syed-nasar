@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         popupTriggerBtn?.addEventListener("click", () => {
             try {
                 activeProduct = JSON.parse(popupTriggerBtn.dataset.product);
+                console.log(activeProduct, 'activeProduct')
             } catch (err) {
                 console.error("Invalid product JSON", err);
                 return;
@@ -66,8 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             optionLabel.textContent = optionName;
             optionLabel.classList.add("quickAdd__optionLabel");
 
-            const variantSelect = document.createElement("select");
-            variantSelect.dataset.optionIndex = optionIndex;
+            optionWrapper.appendChild(optionLabel);
 
             const uniqueValues = [
                 ...new Set(
@@ -75,26 +75,92 @@ document.addEventListener("DOMContentLoaded", () => {
                 ),
             ];
 
-            uniqueValues.forEach((value) => {
-                const option = document.createElement("option");
-                option.value = value;
-                option.textContent = value;
-                variantSelect.appendChild(option);
-            });
 
-            selectedOptions[optionIndex] = uniqueValues[0];
 
-            variantSelect.addEventListener("change", (e) => {
-                selectedOptions[optionIndex] = e.target.value;
-                updateVariantSelection();
-            });
+            if (optionName.toLowerCase() === "color") {
 
-            optionWrapper.appendChild(optionLabel);
-            optionWrapper.appendChild(variantSelect);
-            container.appendChild(optionWrapper);
+                const tabsWrapper = document.createElement("div");
+                tabsWrapper.classList.add("quickAdd__colorTabs");
+
+                const indicator = document.createElement("span");
+                indicator.classList.add("quickAdd__colorIndicator");
+                tabsWrapper.appendChild(indicator);
+
+                uniqueValues.forEach((value, index) => {
+
+                    const tab = document.createElement("button");
+                    tab.type = "button";
+                    tab.classList.add("quickAdd__colorTab");
+                    tab.dataset.value = value;
+
+                    const colorName = document.createElement("span");
+                    colorName.classList.add("quickAdd__colorName");
+                    colorName.textContent = value;
+
+                    const colorDot = document.createElement("span");
+                    colorDot.classList.add("quickAdd__colorDot");
+                    colorDot.style.backgroundColor = value.toLowerCase();
+
+                    tab.appendChild(colorName);
+                    tab.appendChild(colorDot);
+                    tabsWrapper.appendChild(tab);
+
+                    if (index === 0) {
+                        tab.classList.add("active");
+                        selectedOptions[optionIndex] = value;
+
+                        requestAnimationFrame(() => {
+                            moveIndicator(tab, indicator);
+                        });
+                    }
+
+                    tab.addEventListener("click", () => {
+                        tabsWrapper.querySelectorAll(".quickAdd__colorTab")
+                            .forEach(t => t.classList.remove("active"));
+
+                        tab.classList.add("active");
+                        selectedOptions[optionIndex] = value;
+
+                        moveIndicator(tab, indicator);
+                        updateVariantSelection();
+                    });
+                });
+
+                container.appendChild(tabsWrapper);
+
+            }
+
+            if (optionName.toLowerCase() !== "color") {
+                const variantSelect = document.createElement("select");
+                variantSelect.dataset.optionIndex = optionIndex;
+                uniqueValues.forEach((value) => {
+                    const option = document.createElement("option");
+                    option.value = value;
+                    option.textContent = value;
+                    variantSelect.appendChild(option);
+                });
+
+                selectedOptions[optionIndex] = uniqueValues[0];
+
+                variantSelect.addEventListener("change", (e) => {
+                    selectedOptions[optionIndex] = e.target.value;
+                    updateVariantSelection();
+                });
+
+                optionWrapper.appendChild(variantSelect);
+                container.appendChild(optionWrapper);
+            }
         });
 
         updateVariantSelection();
+    }
+
+    function moveIndicator(activeTab, indicator) {
+        const rect = activeTab.getBoundingClientRect();
+        const parentRect = activeTab.parentElement.getBoundingClientRect();
+
+        indicator.style.width = `${rect.width}px`;
+        indicator.style.transform = `translateX(${rect.left - parentRect.left}px)`;
     }
 
     function updateVariantSelection() {
@@ -174,6 +240,20 @@ document.addEventListener("DOMContentLoaded", () => {
     quickAddOverlay?.addEventListener("click", closePopup);
 });
 
+const cursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('.productGrid__btn')) {
+        cursor.style.opacity = '1';
+    } else {
+        cursor.style.opacity = '0';
+    }
+});
 
 // (function () {
 //     const originalDispatch = EventTarget.prototype.dispatchEvent
@@ -181,3 +261,14 @@ document.addEventListener("DOMContentLoaded", () => {
 //         console.log('Custom__events', event)
 //     }
 // })()
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const burgerMenu = document.querySelector('.header__menu');
+    const burgerContent = document.querySelector('.header__content');
+
+    burgerMenu.addEventListener("click", () => {
+        burgerMenu.classList.toggle('active')
+        burgerContent.classList.toggle('active')
+    })
+})
